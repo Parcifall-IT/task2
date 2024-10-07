@@ -6,6 +6,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,49 +22,12 @@ public class Task4 {
             System.out.println("Response status code: " + response.statusCode());
 
             var jsonString = response.body();
-            System.out.println(jsonString);
-            /*var deserializedData = new ObjectMapper().readValue(jsonString, new TypeReference<List<Header>>() {});
-            for (Header header : deserializedData) {
-                System.out.println(header);
-            }*/
+            //System.out.println(jsonString);
+            Map<String, Map<String, String>> deserializedData = new ObjectMapper().readValue(jsonString, new TypeReference<Map<String, Map<String, String>>>() {});
+            var data = deserializedData.get("headers").entrySet();
+            for (Map.Entry<String, String> d : data) {
+                System.out.println(d.getKey() + ":" + d.getValue());
+            }
         }
-    }
-}
-
-class Header {
-    private String header;
-    private String data;
-
-    public Header() {
-
-    }
-
-    public Header(String header, String data) {
-        this.header = header;
-        this.data = data;
-    }
-
-    public String getHeader() {
-        return header;
-    }
-
-    public void setHeader(String header) {
-        this.header = header;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    @Override
-    public String toString() {
-        return "Header{" +
-                "header='" + header + '\'' +
-                ", data='" + data + '\'' +
-                '}';
     }
 }
