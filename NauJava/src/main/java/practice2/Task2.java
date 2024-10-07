@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Task2 {
-    public static void main(String[] args) {
+    public static void Task() {
         var scanner = new Scanner(System.in);
         var rand = new Random();
         var n = scanner.nextInt();

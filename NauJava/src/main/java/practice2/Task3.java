@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.Random;
 
 public class Task3 {
-    public static void main(String[] args) {
+    public static void Task() {
         var employees = new ArrayList<Employee>();
         var rand = new Random();
         for (int i = 0; i < 5; i++) {

@@ -12,7 +12,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Task4 {
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void Task() throws IOException, InterruptedException {
         var server = "https://httpbin.org/headers";
         try (HttpClient client = HttpClient.newHttpClient()) {
             var request = HttpRequest.newBuilder()
